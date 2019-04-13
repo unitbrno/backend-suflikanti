@@ -1,0 +1,202 @@
+<!-- href="{{ url_for('static', filename='style.css')}}" -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='index_style.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    </head>
+
+    <body onload="setMargin()">
+            <h1>Albumer</h1>
+            <h2>Input all your album files</h2>
+            
+            <form method="post" enctype="multipart/form-data">
+            
+                <div style='margin: 5%;' class="input-file-container">  
+                    Select images: 
+                    <input class="input-file" id="backgrounds" name="backgrounds" type="file" multiple="">
+                </div>
+                
+                <div style='margin: 5%;' class="input-file-container">  
+                    Select songs: 
+                    <input class="input-file" id="songs" name="songs" type="file" multiple="">
+                </div>
+
+                <div style='margin: 5%;' class="input-file-container">  
+                    Select videos: 
+                  <input class="input-file" id="videos" name="videos" type="file" multiple="">
+                </div>
+
+                <div style='margin: 5%;' class="input-file-container">
+                    Select logo:
+                    <input class="input-file" id="logos" name="images" type="file" multiple="">
+                </div>
+
+                <div style='margin: 5%;' class="input-file-container">  
+                  <input type="submit" value="Upload files" name="submit">
+                </div>
+
+            </form>
+
+            <p class="txtcenter">It's just a test, not really usable.<br />Works on IE &gt; 8 and modern browsers</p>
+
+            <div id='icon_container' class='icons'>
+                <div onclick='show_speed()' class='icon_box'>
+                    <i class="box_icon fas fa-clock fa-2x" onclick="show_time"></i>
+                    <p>Speed</p>
+                </div>
+
+                <div onclick='show_fonts()' class='icon_box'>
+                    <i class="box_icon fab fa-buysellads fa-2x"></i>
+                    <p>Fonts</p>
+                </div>
+                
+                <div onclick='show_photos()'class='icon_box'>
+                    <i class="box_icon fas fa-filter fa-2x"></i>
+                    <p>Amount</p>
+                </div>
+
+                <div onclick='show_intro()'class='icon_box'>
+                    <i class="box_icon fab fa-intercom fa-2x"></i>
+                    <p>Intro/Outro</p>
+                </div>
+
+                <div onclick='show_platform()'class='icon_box'>
+                        <i class="box_icon fas fa-bullseye fa-2x"></i>
+                        <p>Platform</p>
+                    </div>
+                    <!-- <li><i class="box_icon fas fa-eye fa-2x"></i></li> -->
+            </div>
+
+            <form method="post" enctype="multipart/form-data" action='/produce_video'>
+                <div class='submit'>
+                    <input type='submit' value='Set options' >
+                </div>
+            
+                <div class='footer'>
+                    <div class='choise' id='duration'>
+                        <ul style='margin:0;padding:0;'>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='radio' name='fast' value='True'>Quick<br></li>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='radio' name='fast' value='False'>Normal<br></li>
+                        </ul>
+                    </div>
+
+                    <div class='choise' id='length'>
+                        <ul style='margin:0;padding:0;'>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='radio' name='duration' value='1'>One photo</li>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='radio' name='duration' value='3'>More photos</li>
+                        </ul>
+                    </div>
+
+                    <div class='choise' id='fonts'>
+                        <ul style='margin:0;padding:0; text-align: center'>
+                            <li style='margin-right: 3%; display: inline-block;'><input style='float:left;' type='radio' name='font' value='0'><span style='font-family: "Comic Sans MS", cursive, sans-serif;'>Comic Sans</span><br></li>
+                            <li style='margin-right: 3%; display: inline-block;'><input style='float:left;' type='radio' name='font' value='1'><span style='font-family: "Courier New", Courier, monospace;'>Curier</span></li>
+                            <li style='margin-right: 3%; display: inline-block;'><input style='float:left;' type='radio' name='font' value='2'><span style='font-family:Arial, Helvetica, sans-serif;'>Arial</span></li>
+
+                        </ul>
+                    </div>
+
+                    <div class='choise' id='intro_outro'>
+                        <ul style='margin:0;padding:0;'>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='checkbox' name='intro' value='True'>Outro</li>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='checkbox' name='outro' value='True'>Intro</li>
+                        </ul>
+                    </div>
+
+                    <div class='choise' id='platform'>
+                        <ul style='margin:0;padding:0;'>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='radio' name='platform' value='FB'>Facebook</li>
+                            <li style='margin-right: 3%; display: inline-block;'><input type='radio' name='platform' value='IG'>Instagram</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </body>
+
+    <script>
+        var selected_el = document.getElementById('platform');
+
+        function show_fonts(){
+            // document.getElementById('fonts').style.display = 'block'
+            selected_el.style.display = 'none';
+            selected_el = document.getElementById('fonts');
+            selected_el.style.display = "block";
+            // console.log(elem);
+        }
+
+        function show_intro(){
+            console.log(selected_el)
+            selected_el.style.display = 'none';
+            selected_el = document.getElementById('intro_outro');
+            selected_el.style.display = "block";
+        }
+
+        function show_photos(){
+            selected_el.style.display = 'none';
+            selected_el = document.getElementById('length')
+            selected_el.style.display = "block";
+
+        }
+
+        function show_platform(){
+            selected_el.style.display = 'none';
+            selected_el = document.getElementById('platform');
+            selected_el.style.display = "block";
+        }
+
+        function show_speed(){
+            selected_el.style.display = 'none';
+            selected_el = document.getElementById('duration');
+            selected_el.style.display = "block";
+        }
+
+        function getwidthIcons(){
+            var element = document.getElementById('icon_container');
+            b = document.getElementsByClassName('icon_box')
+            var width_boxes = 0
+            for ( i = 0; i < b.length; i++ ){
+                var element = b[i]
+                // width_boxes += b[i].offsetWidth;
+                
+                var style = element.currentStyle || window.getComputedStyle(element),
+                width = element.offsetWidth, // or use style.width
+                margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight),
+                padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
+                border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+
+                width_boxes += (width + margin - padding + border);
+
+            }
+
+            return width_boxes;
+        }
+
+        function set_container(width_boxes){
+            var elem = document.getElementById('icon_container')
+            var elem_width = elem.offsetWidth
+
+
+            padding_left = elem_width - width_boxes;
+
+            console.log(padding_left + " left padding")
+            console.log(width_boxes + " boxes")
+
+            elem.style.marginLeft = padding_left / 2 + "px";
+            elem.style.marginRight = padding_left / 2 + "px";
+
+        }
+
+        function setMargin(){
+            a = getwidthIcons()
+            set_container(a)
+        }
+
+    </script>
+
+</html>
