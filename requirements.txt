@@ -1,0 +1,13 @@
+aubio==0.4.9
+certifi==2019.3.9
+chardet==3.0.4
+eyeD3==0.8.10
+idna==2.8
+numpy==1.16.2
+Pillow==6.0.0
+python-magic==0.4.15
+python-resize-image==1.1.18
+requests==2.21.0
+six==1.12.0
+urllib3==1.24.1
+yodel==0.3.0

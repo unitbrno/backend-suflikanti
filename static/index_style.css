@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+
+@keyframes hideNshow {
+    50%{
+        height: 99%;
+    }
+    100%{
+        height: 0%;
+    }
+}
+
+
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container{
+    padding-top: 20%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#canvas{
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.lifepart{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.menu{
+    width: 50%;
+    height: 35%;
+    margin-left: 25%;
+    padding-top: 30%;
+}
+
+.topname{
+    position: relative;
+    height: 45%;
+    width: 100%;
+    text-align: center;
+    /* margin-bottom: 5%; */
+    font-family: Roboto;
+    color: rgba(67,158,146,1);
+    text-indent: 0px;
+}
+
+.orig{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.pseudo{
+    position: absolute;
+    height: 0%;
+    width: 50%;
+    margin-left: 25%;
+    background-color: white;
+    /* border-bottom: 1px solid black; */
+}
+
+.HnS{
+    animation: 500ms hideNshow linear;
+}
+
+.topname h1{
+    font-size: 300%;        
+    margin: 0;
+    
+}
+
+.topname p {
+    font-size: 100%;
+    margin: 0;
+}
+
+.parts{
+    height: 65%;
+}
+
+.part{
+    width: 30%;
+    margin-left: 3%;
+    height: 4%;
+    float: left;
+    cursor: pointer;
+    transition: 500ms height linear;
+}
+
+.part:hover{
+    height: 80%;
+}
+
+#school{
+    background-color: rgba(171,89,168,1);
+}
+
+#achievements{
+    background-color: rgba(234,204,88,1);
+}
+
+#projects{
+    background-color: rgba(107,92,35,1);
+}
+
+
+/* THIS IS FOR UNIT */
+
+.file-uploads{
+    float: left;
+    margin: 5%;
+    color:red;
+  }
+
+  .side_panel {
+    position: fixed;
+    width: 5%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #CCA362;
+  }
+
+  /* .checker[type=checkbox]:checked + fab{
+    color: red;
+  } */
+
+  ul li{
+    display: inline;
+  }
+
+  p{
+    padding: 0!important;
+    margin: 0!important;
+  }
+
+  .box_icon{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+  }
+
+  .icons{
+    display: box;
+    width: 100%;
+    height: 30%;
+  }
+
+  .icon_box{
+    text-align: center;
+    float:left;
+    margin: 5%;
+  }
+
+  .footer{
+    display: block;
+    width: 100%;
+    background-color: rgb(56,143,128);
+    position: fixed;
+    /* height: 10%; */
+    bottom: 0%;
+    left: 0;
+  }
+
+
+  .choise{
+    display: none;
+    font-size: 1.7em;
+  }
+
+  i{
+    display:inline;
+    float: left;
+  }
+
+  .input-file-container {
+    position: relative;
+    width: 225px;
+  } 
+  .js .input-file-trigger {
+    display: block;
+    padding: 14px 45px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+  }
+  .js .input-file {
+    position: absolute;
+    top: 0; left: 0;
+    width: 225px;
+    opacity: 0;
+    padding: 14px 0;
+    cursor: pointer;
+  }
+
+
+  .js .input-file:hover + .input-file-trigger,
+  .js .input-file:focus + .input-file-trigger,
+  .js .input-file-trigger:hover,
+  .js .input-file-trigger:focus {
+    background: #34495E;
+    color: #39D2B4;
+  }
+  
+  .file-return {
+    margin: 0;
+  }
+  .file-return:not(:empty) {
+    margin: 1em 0;
+  }
+  .js .file-return {
+    font-style: italic;
+    font-size: .9em;
+    font-weight: bold;
+  }
+  .js .file-return:not(:empty):before {
+    content: "Selected file: ";
+    font-style: normal;
+    font-weight: normal;
+  }
+
+
+  /* Useless styles, just for demo styles */
+  
+  body {
+    font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
+    color: #7F8C9A;
+    background: #FCFDFD;
+  }
+  h1, h2 {
+    margin-bottom: 5px;
+    font-weight: normal;
+    text-align: center;
+    color:#aaa;
+  }
+  h2 {
+    margin: 5px 0 2em;
+    color: #1ABC9C;
+  }
+  form {
+    width: 225px;
+    margin: 0 auto;
+    text-align:center;
+  }
+  h2 + P {
+    text-align: center;
+  }
+
+form{
+    margin:0;
+}
+
+  .txtcenter {
+    margin-top: 4em;
+    font-size: .9em;
+    text-align: center;
+    color: #aaa;
+  }
+  .copy {
+    margin-top: 2em;
+  }
+  .copy a {
+    text-decoration: none;
+    color: #1ABC9C;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    /* height: 300; */
+    margin: 1rem;
+    position: relative;
+    width: 200px;
+  }
+  
+  .card-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+
+  .card-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
